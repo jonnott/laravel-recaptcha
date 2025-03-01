@@ -109,7 +109,7 @@ class ReCaptchaTest extends TestCase
 				"api_site_key",
 				"api_secret_key"
 			])
-			->setMethods([
+			->onlyMethods([
 				'returnArray'
 			])
 			->getMock();
