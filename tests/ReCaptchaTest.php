@@ -39,9 +39,6 @@ class ReCaptchaTest extends TestCase
 	 */
 	protected $recaptcha_v3 = null;
 
-	/**
-	 * @tests
-	 */
 	public function testHtmlScriptTagJsApiGetHtmlScriptTag()
 	{
 
@@ -49,9 +46,6 @@ class ReCaptchaTest extends TestCase
 		$this->assertEquals('<script src="https://www.google.com/recaptcha/api.js" async defer></script>', $r);
 	}
 
-	/**
-	 * @test
-	 */
 	public function testReCaptchaInvisibleHtmlFormButtonDefault()
 	{
 
@@ -63,9 +57,6 @@ class ReCaptchaTest extends TestCase
 		);
 	}
 
-	/**
-	 * @test
-	 */
 	public function testReCaptchaInvisibleHtmlFormButtonCustom()
 	{
 
@@ -77,9 +68,6 @@ class ReCaptchaTest extends TestCase
 		);
 	}
 
-	/**
-	 * @test
-	 */
 	public function testReCaptchaV2HtmlFormSnippet()
 	{
 
@@ -88,19 +76,12 @@ class ReCaptchaTest extends TestCase
 		$this->assertEquals('<div class="g-recaptcha" data-sitekey="api_site_key" data-size="normal" data-theme="light" id="recaptcha-element"></div>', $html_snippet);
 	}
 
-	/**
-	 * @test
-	 * @expectedException     \Error
-	 */
 	public function testReCaptchaInvisibleHtmlFormSnippetShouldThrowError()
 	{
-		$this->expectException('\Error');
+		$this->expectException(\Error::class);
 		$this->recaptcha_invisible->htmlFormSnippet();
 	}
 
-	/**
-	 * @test
-	 */
 	public function testSkipByIpAndReturnArrayReturnsDefaultArray()
 	{
 
@@ -128,9 +109,6 @@ class ReCaptchaTest extends TestCase
 		], $validate);
 	}
 
-	/**
-	 * @test
-	 */
 	public function testSkipByIpReturnsValidResponse()
 	{
 
@@ -140,9 +118,6 @@ class ReCaptchaTest extends TestCase
 		$this->assertTrue($validate);
 	}
 
-	/**
-	 * @test
-	 */
 	public function testDefaultCurlTimeout()
 	{
 
@@ -151,35 +126,22 @@ class ReCaptchaTest extends TestCase
 		$this->assertEquals($this->recaptcha_v3->getCurlTimeout(), ReCaptchaBuilder::DEFAULT_CURL_TIMEOUT);
 	}
 
-	/**
-	 * @test
-	 * @expectedException     \Error
-	 */
 	public function testReCaptchaV2htmlFormButtonShouldThrowError()
 	{
-		$this->expectException('\Error');
+		$this->expectException(\Error::class);
 		$this->recaptcha_v2->htmlFormButton();
 	}
 
-	/**
-	 * @test
-	 */
 	public function testRecaptchaFieldNameHelperReturnsReCaptchaBuilderDefaultFieldName()
 	{
 		$this->assertEquals(ReCaptchaBuilder::DEFAULT_RECAPTCHA_FIELD_NAME, recaptchaFieldName());
 	}
 
-	/**
-	 * @test
-	 */
 	public function testRecaptchaRuleNameHelperReturnsReCaptchaBuilderDefaultRuleName()
 	{
 		$this->assertEquals(ReCaptchaBuilder::DEFAULT_RECAPTCHA_RULE_NAME, recaptchaRuleName());
 	}
 
-	/**
-	 * @test
-	 */
 	public function testDefaultRecaptchaApiDomainIsGoogleDotCom()
 	{
 		$this->assertEquals("www.google.com", $this->recaptcha_v2->getApiDomain());

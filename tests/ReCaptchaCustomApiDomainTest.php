@@ -33,9 +33,6 @@ class ReCaptchaCustomApiDomainTest extends TestCase
      */
     protected $recaptcha_v3;
 
-    /**
-     * @test
-     */
     public function testRecaptchaApiDomainChangesByConfig()
     {
         $this->app['config']->set('recaptcha.api_domain', 'www.recaptcha.net');
@@ -44,9 +41,6 @@ class ReCaptchaCustomApiDomainTest extends TestCase
         $this->assertEquals("www.recaptcha.net", $this->recaptcha_v3->getApiDomain());
     }
 
-    /**
-     * @test
-     */
     public function testRecaptchaApiDomainChangesByConfigInHtmlScriptTagJsApi()
     {
         $this->assertStringContainsString("https://www.recaptcha.net/recaptcha/api.js", $this->recaptcha_v2->htmlScriptTagJsApi());

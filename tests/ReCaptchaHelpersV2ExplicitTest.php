@@ -16,9 +16,6 @@ use Biscolab\ReCaptcha\ReCaptchaBuilderV2;
 class ReCaptchaHelpersV2ExplicitTest extends TestCase
 {
 
-    /**
-     * @test
-     */
     public function testGetOnLoadCallbackFunction()
     {
 
@@ -32,9 +29,6 @@ class ReCaptchaHelpersV2ExplicitTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
     public function testHtmlScriptTagJsApiHasJavascriptRenderFunction()
     {
 
@@ -46,9 +40,6 @@ class ReCaptchaHelpersV2ExplicitTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
     public function testTagAttributes()
     {
 
@@ -73,18 +64,12 @@ class ReCaptchaHelpersV2ExplicitTest extends TestCase
         $this->assertEquals($tag_attributes['error-callback'], 'errorCallbackFunction');
     }
 
-    /**
-     * @test
-     */
     public function testExpectReCaptchaInstanceOfReCaptchaBuilderV2()
     {
 
         $this->assertInstanceOf(ReCaptchaBuilderV2::class, \recaptcha());
     }
 
-    /**
-     * @test
-     */
     public function testHtmlFormSnippet()
     {
 

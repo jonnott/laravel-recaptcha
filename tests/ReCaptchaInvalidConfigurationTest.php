@@ -20,9 +20,6 @@ use Biscolab\ReCaptcha\ReCaptchaBuilder;
 class ReCaptchaInvalidConfigurationTest extends TestCase
 {
 
-    /**
-     * @test
-     */
     public function testV2HtmlScriptTagJsApiThrowsInvalidConfigurationException()
     {
 

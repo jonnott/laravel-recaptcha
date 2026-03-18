@@ -17,9 +17,6 @@ use Biscolab\ReCaptcha\ReCaptchaBuilderV2;
 class ReCaptchaHelpersV2Test extends TestCase
 {
 
-    /**
-     * @test
-     */
     public function testHtmlScriptTagJsApiCalledByFacade()
     {
 
@@ -30,9 +27,6 @@ class ReCaptchaHelpersV2Test extends TestCase
         htmlScriptTagJsApi(["key" => "val"]);
     }
 
-    /**
-     * @test
-     */
     public function testHtmlFormSnippetCalledByFacade()
     {
 
@@ -42,9 +36,6 @@ class ReCaptchaHelpersV2Test extends TestCase
         htmlFormSnippet();
     }
 
-    /**
-     * @test
-     */
     public function testTagAttributes()
     {
 
@@ -69,27 +60,18 @@ class ReCaptchaHelpersV2Test extends TestCase
         $this->assertEquals($tag_attributes['error-callback'], 'errorCallbackFunction');
     }
 
-    /**
-     * @test
-     */
     public function testExpectReCaptchaInstanceOfReCaptchaBuilderV2()
     {
 
         $this->assertInstanceOf(ReCaptchaBuilderV2::class, \recaptcha());
     }
 
-    /**
-     * @expectedException     \Error
-     */
     public function testExpectExceptionWhenGetFormIdFunctionIsCalled()
-    {
-        $this->expectException('\Error');
-        getFormId();
-    }
+	{
+		$this->expectException(\Error::class);
+		getFormId();
+	}
 
-    /**
-     * @test
-     */
     public function testHtmlFormSnippet()
     {
 
@@ -100,9 +82,6 @@ class ReCaptchaHelpersV2Test extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
     public function testHtmlFormSnippetOverridesDefaultAttributes()
     {
 
@@ -121,9 +100,6 @@ class ReCaptchaHelpersV2Test extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
     public function testCleanAttributesReturnsOnlyAllowedAttributes()
     {
         $attributes = ReCaptchaBuilderV2::cleanAttributes([
@@ -144,9 +120,6 @@ class ReCaptchaHelpersV2Test extends TestCase
         $this->assertArrayNotHasKey("not-allowed-attribute", $attributes);
     }
 
-    /**
-     * @test
-     */
     public function testHtmlFormSnippetKeepsDefaultConfigValuesUnlessOtherwiseStated()
     {
         $html_snippet = \recaptcha()->htmlFormSnippet([

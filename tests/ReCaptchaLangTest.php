@@ -27,9 +27,6 @@ class ReCaptchaLangTest extends TestCase
 	 */
 	protected $recaptcha_v2;
 
-	/**
-	 * @tests
-	 */
 	public function testHtmlScriptTagJsApiGetHtmlScriptWithHlParam()
 	{
 
@@ -37,9 +34,6 @@ class ReCaptchaLangTest extends TestCase
 		$this->assertEquals('<script src="https://www.google.com/recaptcha/api.js?hl=it" async defer></script>', $r);
 	}
 
-	/**
-	 * @tests
-	 */
 	public function testHtmlScriptTagJsApiGetHtmlScriptOverridingHlParam()
 	{
 

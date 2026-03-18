@@ -16,9 +16,6 @@ use Biscolab\ReCaptcha\Facades\ReCaptcha;
 class ReCaptchaHelpersInvisibleTest extends TestCase
 {
 
-    /**
-     * @test
-     */
     public function testHtmlScriptTagJsApiCalledByFacade()
     {
 
@@ -29,9 +26,6 @@ class ReCaptchaHelpersInvisibleTest extends TestCase
         htmlScriptTagJsApi(["form_id" => "test-form"]);
     }
 
-    /**
-     * @test
-     */
     public function testHtmlFormButtonCalledByFacade()
     {
 
@@ -42,9 +36,6 @@ class ReCaptchaHelpersInvisibleTest extends TestCase
         htmlFormButton("Inner text", ['id' => 'button_id']);
     }
 
-    /**
-     * @test
-     */
     public function testGetFormIdCalledByFacade()
     {
 
@@ -61,19 +52,14 @@ class ReCaptchaHelpersInvisibleTest extends TestCase
         $this->assertEquals('<button class="button_class g-recaptcha" data-callback="myCallback" data-sitekey="api_site_key" id="button_id">Inner text</button>', $button_html);
     }
 
-    /**
-     * @test
-     * @expectedException \TypeError
-     */
     public function testHtmlFormSnippetCalledByFacade()
-    {
+	{
+		$this->expectException(\TypeError::class);
+		ReCaptcha::shouldReceive('htmlFormSnippet')
+			->once();
 
-        $this->expectException('\TypeError');
-        ReCaptcha::shouldReceive('htmlFormSnippet')
-            ->once();
-
-        htmlFormSnippet();
-    }
+		htmlFormSnippet();
+	}
 
     public function testGetFormIdReturnDefaultFormIdValue()
     {

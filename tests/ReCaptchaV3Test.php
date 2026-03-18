@@ -25,18 +25,12 @@ class ReCaptchaV3Test extends TestCase
 
     protected $recaptcha_v3 = null;
 
-    /**
-     * @test
-     */
     public function testGetApiVersion()
     {
 
         $this->assertEquals($this->recaptcha_v3->getVersion(), 'v3');
     }
 
-    /**
-     * @test
-     */
     public function testAction()
     {
 
@@ -44,9 +38,6 @@ class ReCaptchaV3Test extends TestCase
         $this->assertMatchesRegularExpression('/someAction/', $r);
     }
 
-    /**
-     * @test
-     */
     public function testFetchCallbackFunction()
     {
 
@@ -54,9 +45,6 @@ class ReCaptchaV3Test extends TestCase
         $this->assertMatchesRegularExpression('/functionCallbackThen\(response\)/', $r);
     }
 
-    /**
-     * @test
-     */
     public function testcCatchCallbackFunction()
     {
 
@@ -64,9 +52,6 @@ class ReCaptchaV3Test extends TestCase
         $this->assertMatchesRegularExpression('/functionCallbackCatch\(err\)/', $r);
     }
 
-    /**
-     * @test
-     */
     public function testCustomValidationFunction()
     {
 
@@ -74,9 +59,6 @@ class ReCaptchaV3Test extends TestCase
         $this->assertMatchesRegularExpression('/functionCustomValidation\(token\)/', $r);
     }
 
-    /**
-     * @test
-     */
     public function testCustomValidationUrl()
     {
 
@@ -84,9 +66,6 @@ class ReCaptchaV3Test extends TestCase
         $this->assertMatchesRegularExpression('/http:\/\/localhost\/my-custom-url\?my-custom-token-name/', $r);
     }
 
-    /**
-     * @test
-     */
     public function testValidateController()
     {
 
@@ -97,18 +76,12 @@ class ReCaptchaV3Test extends TestCase
         $this->assertArrayHasKey("error-codes", $return);
     }
 
-    /**
-     * @test
-     */
     public function testCurlTimeoutIsSet()
     {
 
         $this->assertEquals($this->recaptcha_v3->getCurlTimeout(), 3);
     }
 
-    /**
-     * @test
-     */
     public function testHtmlScriptTagJsApiCalledByFacade()
     {
 
@@ -119,25 +92,16 @@ class ReCaptchaV3Test extends TestCase
         htmlScriptTagJsApi([]);
     }
 
-    /**
-     * @test
-     */
     public function testValidationUrlShouldBeMyCustomUrl()
     {
         $this->assertEquals($this->recaptcha_v3->getValidationUrl(), "http://localhost/my-custom-url");
     }
 
-    /**
-     * @test
-     */
     public function testTokenParamNameShouldBeMyCustomTokenParamName()
     {
         $this->assertEquals($this->recaptcha_v3->getTokenParameterName(), "my-custom-token-name");
     }
 
-    /**
-     * @test
-     */
     public function testValidationUrlShouldBeMyCustomValidationUrl()
     {
         $this->assertEquals($this->recaptcha_v3->getValidationUrlWithToken(), "http://localhost/my-custom-url?my-custom-token-name");
